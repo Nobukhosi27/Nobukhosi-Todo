@@ -1,0 +1,51 @@
+
+
+<main class="todo-container">
+
+    <div class="todo">
+
+        <h2>TO-DO LIST</h2>
+  
+    <div class="add-task">
+<input [(ngModel)]="newTask" placeholder="Enter new task"/>
+<button (click)="addTask()">Add</button>
+
+    </div>
+
+    <ul class="task-list">
+
+        <li  [ngStyle]="dynamicCss" *ngFor="let todo of todoList; let i=index" [ngClass]="{completed:todo.completed}">
+        
+            <input
+            type="checkbox"
+            [(checked)]="todo.completed"
+            (change)="toggleCompleted(i)"
+
+            
+            />
+
+         
+            <span [class.completed]="todo.completed">{{todo.task}}</span>
+
+            
+            <input type="date"/>
+            
+        
+            <button (click)="updateTask(todo.id)" >Update </button>
+            <button (click)="deleteTask(todo.id)"> Delete </button>
+        
+        </li>
+           
+        </ul>
+
+    </div>
+
+
+
+
+
+
+
+</main>
+
+
